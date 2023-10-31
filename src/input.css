@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    scroll-behavior:smooth;
+}
+
+.back-to-top {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5rem;
+	text-decoration: none;
+
+  height:30px;
+}
+
+.back-to-top span {
+	transition: 0.2s ease-out;
+}
+
+.back-to-top:hover {
+	@apply bg-primary/80;
+}
+
+.active{
+  @apply animate-bounce;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+.navbar-fixed{
+    @apply fixed z-[9999] bg-white bg-opacity-70;
+    backdrop-filter: blur(5px);
+    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.hamburger-line{
+    @apply w-[30px] h-[2px] my-2 block bg-dark;
+}
+
+.hamburger-active > span:nth-child(1){
+    @apply  rotate-45;
+}
+.hamburger-active > span:nth-child(2){
+    @apply  scale-0;
+}
+.hamburger-active > span:nth-child(3){
+    @apply  -rotate-45;
+}
+
+.wrapper{
+    display: flex;
+    background-color:d9d9d9;
+  }
+  .wrapper .static-txt{
+    font-size: 60px;
+    font-weight: 400;
+  }
+  .wrapper .dynamic-txts{
+    margin-left: 15px;
+    height: 80px;
+    line-height: 90px;
+    overflow: hidden;
+  }
+  .dynamic-txts li{
+    list-style: none;
+    color: #FC6D6D;
+    font-size: 60px;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 9s steps(3) infinite;
+    /* animation: slide 12s steps(4) infinite; */
+  }
+  @keyframes slide {
+    100%{
+      top: -270px;
+    }
+  }
+  .dynamic-txts li span{
+    position: relative;
+    margin: 0px 0;
+    line-height: 80px;
+  }
+  .dynamic-txts li span::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 120%;
+    width: 100%;
+    background: #ffffff;
+    border-left: 3px solid #0F172A;
+    animation: typing 3s steps(10) infinite;
+  }
+  @keyframes typing {
+    50%, 60%{
+      left: calc(100% + 30px);
+    }
+    100%{
+      left: 0;
+    }
+  }
+
+ 
+@media only screen and (min-width: 480px) {
+  .wrapper .static-txt{
+    margin-top:10px;
+    font-size: 45px;
+  }
+  .wrapper .dynamic-txts{
+    height: 80px;
+    line-height: 90px;
+  }
+  .dynamic-txts li{
+    font-size: 45px;
+  }
+  .dynamic-txts li span::after{
+    margin-top:10px;
+  }
+  @keyframes slide {
+    100%{
+      top: -270px;
+    }
+  }
+  .giga {
+    width:300px;
+  }
+}
+
+
+
+
+
+
